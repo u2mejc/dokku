@@ -1,7 +1,7 @@
 DOKKU_VERSION = master
 
 SSHCOMMAND_URL ?= https://raw.github.com/progrium/sshcommand/master/sshcommand
-PLUGN_URL ?= https://github.com/progrium/plugn/releases/download/v0.1.0/plugn_0.1.0_linux_x86_64.tgz
+PLUGN_URL ?= https://github.com/progrium/plugn/releases/download/v0.2.0/plugn_0.2.0_linux_x86_64.tgz
 STACK_URL ?= https://github.com/gliderlabs/herokuish.git
 PREBUILT_STACK_URL ?= gliderlabs/herokuish:latest
 DOKKU_LIB_ROOT ?= /var/lib/dokku
@@ -97,6 +97,7 @@ sshcommand:
 plugn:
 	wget -qO /tmp/plugn_latest.tgz ${PLUGN_URL}
 	tar xzf /tmp/plugn_latest.tgz -C /usr/local/bin
+	rm /tmp/plugn_latest.tgz
 
 docker: aufs
 	apt-get install -qq -y curl
